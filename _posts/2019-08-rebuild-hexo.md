@@ -56,9 +56,11 @@ theme: hexo-theme-next
 这个用来显示字数统计，在配置中默认是启用的，但是需要下载依赖。
 
 ```bash
-cd hexo/blog/theme/hexo-theme-next
-git clone https://github.com/theme-next/hexo-symbols-count-time source/lib/symbols-count-time
+cd hexo/blog
+yarn add hexo-symbols-count-time
 ```
+
+这段的配置等下再更新上来。
 
 ## firestore
 这个是用来记录阅读数量的。原本用的是`leancloud`，但是最近`leancloud`国内版要绑定域名才可以使用。这就牵扯到了域名注册备案一类的东西。
