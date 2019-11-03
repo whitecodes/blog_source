@@ -1,5 +1,5 @@
 ---
-title: install-EFB-on-Arch
+title: install EFB on Arch
 tags:
   - Code
 date: 2019-03-03 16:58:51
