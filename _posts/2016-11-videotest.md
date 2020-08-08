@@ -17,6 +17,7 @@ Your browser does not support the video tag.
 更新：同样的一份博客也同时部署在国内的`Coding`上了。
 
 尝试加入弹幕支持
+```
 {% dplayer "url=http://oaigdk90m.bkt.clouddn.com/%5BOZC%5DNeon%20Genesis%20Evangelion%20Platinum%20Clean%20OP.mkv" "api=https://api.prprpr.me/dplayer/" "id=2016-11-videotest" %}
-
+```
 更新：存储视频的`七牛`收回了域名，所有视频都播放不了了
