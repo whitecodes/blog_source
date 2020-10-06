@@ -548,6 +548,7 @@ yay -S steam
 
 `ark`    
 额外的格式支持
+
 ```
 lrzip (optional) - LRZ format support
 lzop (optional) - LZO format support
@@ -574,14 +575,33 @@ unrar (optional) - RAR decompression support
 
 `工作空间行为`-`桌面特效` `模糊` 设置合适的值
 
+## 锁屏时间格式
+参考`reddit`上的[这个帖子](https://www.reddit.com/r/Kubuntu/comments/8w79fc/i_want_to_lock_screen_to_display_time_in_24h/)
+
+对于登录屏幕，修改`/usr/share/sddm/themes/breeze/components/Clock.qml`;对于锁屏，修改`/usr/share/plasma/look-and-feel/org.kde.breeze.desktop/contents/components/Clock.qml`
+
+修改内容：將
+
+``` qml
+text: Qt.formatTime(timeSource.data["Local"]["DateTime"])
+```
+
+替换为
+
+``` qml
+text: Qt.formatTime(timeSource.data["Local"]["DateTime"],"hh:mm:ss")
+```
+
 ## 输入法皮肤    
 安装`fcitx-skin-material`
 
-## 关闭Baloo索引     
-```
+## 关闭Baloo索引 
+
+``` shell
 balooctl disable
 ``` 
 
 ## DOCK
+
 `latte-dock`    
 分隔使用`plasma5-applets-latte-spacer`
