@@ -55,7 +55,7 @@ rkdeveloptool rd
 
 ## 配置
 
-### 修改主页&停到不需要的服务
+### 修改主页&停掉不需要的服务
 
 主页是`nginx`+`php`的，直接修改端口，看不到就没事了。
 文件路径：`/opt/etc/nginx/vhost/entware.conf`
@@ -164,7 +164,7 @@ swapon ./swapfile
 
 下载使用的是`Aria2`，系统中自带了，这里记录下配置文件。之后如果`Aria2`如果有大版本更新，新增了功能应该会使用`Docker`版本。
 
-``` conf
+``` ini
 #允许rpc
 enable-rpc=true
 #允许所有来源, web界面跨域权限需要
