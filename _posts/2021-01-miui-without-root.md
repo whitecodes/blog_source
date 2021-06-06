@@ -22,8 +22,6 @@ date: 2021-01-01 21:36:39
 
 ## 尝试 Shizuku 绕过ROOT权限
 
-__这是失败的尝试，建议直接跳过__
-
 通过`Shizuku`可以使其他应用调用高权限的 API。启动`Shizuku`看介绍可以通过`ADB`命令来实现，可以不依赖系统的`root`。
 
 在`Shizuku`的[下载页面](https://shizuku.rikka.app/download.html)提供了4中下载方式：
@@ -56,6 +54,7 @@ __这是失败的尝试，建议直接跳过__
 > 对于 MIUI 11 及以上版本，你必须在 Shizuku 内授予使用者应用权限。这是因为自定义权限功能被破坏，参见 [Shizuku #45](https://github.com/RikkaApps/Shizuku/issues/45) 和 [android-in-china/Compatibility #16](https://github.com/android-in-china/Compatibility/issues/16)
 
 到这里，我放弃了使用`Shizuku`
+
 
 ## 使用Google服务
 
