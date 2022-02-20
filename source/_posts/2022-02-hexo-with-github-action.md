@@ -3,7 +3,7 @@ title: 使用Github Action部署Hexo
 tags:
   - Code
   - Hexo
-date: 2022-02-06 22:55:47
+date: 2022-02-20 22:55:47
 ---
 使用`Github Action`来部署`hexo`，这样电脑本地就不需要安装`npm`相关的东西了。另外利用`github.dev`也可以实现在页面上编辑了。
 
