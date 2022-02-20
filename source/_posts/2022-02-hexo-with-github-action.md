@@ -52,7 +52,7 @@ jobs:
 
 `Cache`不要抄`Hexo`网站上的，按照[Caching dependencies to speed up workflows](https://docs.github.com/cn/actions/using-workflows/caching-dependencies-to-speed-up-workflows)的来
 
-> # npm cache files are stored in `~/.npm` on Linux/macOS
+> npm cache files are stored in `~/.npm` on Linux/macOS
 
 这个文件提交到`Github`上应该就启动`Action`了，可以在`Actions`页上查看进度。
 
