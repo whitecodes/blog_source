@@ -9,7 +9,14 @@ jobs:
         - name: Setup Node.js ${{ matrix.node_version }}
           uses: actions/setup-node@v1
           with:
-            version: ${{ matrix.node_version }}
+            node-version: ${{ matrix.node_version }}
+        - name: Cache NPM dependencies
+          uses: actions/cache@v2
+          with:
+            path: node_modules
+            key: ${{ runner.OS }}-npm-cache
+            restore-keys: |
+              ${{ runner.OS }}-npm-cache
         - name: Setup hexo
           env:
             ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
@@ -24,5 +31,4 @@ jobs:
             npm install
         - name: Hexo deploy
           run: |
-            npx run hexo clean
-            npx run hexo d
+            npx run deploy
