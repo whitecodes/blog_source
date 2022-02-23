@@ -56,6 +56,12 @@ jobs:
 
 这个文件提交到`Github`上应该就启动`Action`了，可以在`Actions`页上查看进度。
 
+`Github Actions`提供了2 core CPUs的VM，所以在在`package.json`中可以使用2个线程进行生成，加快速度
+
+```yaml
+"deploy": "hexo clean && hexo deploy -g -c 2",
+```
+
 预计应该是部署失败的，因为部署的时候没有认证，这就需要添加证书
 
 ## 配置证书 
