@@ -32,9 +32,10 @@ dd bs=4M if=/path/to/archlinux.iso of=/dev/sdx status=progress oflag=sync
 setfont latarcyrheb-sun32
 ```
 
-安装过程需要联网，使用`wifi-menu`来连接网络。
+安装过程需要联网，使用 ~~`wifi-menu`~~ `iwctl`来连接网络。具体的用法参考[iwctl Usage](https://wiki.archlinux.org/title/Iwd#iwctl)
 ```Bash
-wifi-menu
+# wifi-menu
+iwctl
 ping t.cn -c 4
 ```
 
@@ -43,6 +44,7 @@ ping t.cn -c 4
 timedatectl set-ntp true
 sed -i '/China/!{n;/Server/s/^/#/};t;n' /etc/pacman.d/mirrorlist
 ```
+__上面的修改方法已经无效了，去[Pacman Mirrorlist Generator](https://archlinux.org/mirrorlist/)找一份最快的[镜像列表](https://archlinux.org/mirrorlist/?country=CN&protocol=http&protocol=https&ip_version=4&use_mirror_status=on)，手动输入下__
 
 # 分区
 用的是`EFI`，那就需要一个`EFI 系统分区`。`Arch Linux`本身需要一个分区分配给根目录`/`。以防内存不够用计划分`SWAP`分区备用。
@@ -51,7 +53,7 @@ sed -i '/China/!{n;/Server/s/^/#/};t;n' /etc/pacman.d/mirrorlist
 
 | 分区      |  大小  |  格式  |  路径  |         说明 |
 |:----------|:------:|:------:|:------:|-------------:|
-| nvme0n1p1 |  512M  | fat32  |   /boot    | EFI 系统分区 |
+| nvme0n1p1 |  512M  | fat32  |   /EFI    | EFI 系统分区 |
 | nvme0n1p2 |  8G   | [SWAP] | [SWAP] |     交换分区 |
 | nvme0n1p3 | 160.5G |  btrfs  |   /    |       根分区 | 
 
@@ -80,7 +82,7 @@ kfs.btrfs -L xps /dev/nvme0n1p3
 ```Bash
 mount -o compress=lzo /dev/nvme0n1p3 /mnt
 mkdir -p /mnt/boot
-mount /dev/nvme0n1p1 /mnt/boot
+mount /dev/nvme0n1p1 /mnt/EFI
 ```
 
 *注意事项：* 之后当作`系统急救盘`的来使用的时候也需要安装上面的来挂载。
@@ -169,7 +171,7 @@ EDITOR=nano visudo
 安装引导程序。这里直接使用传统的`GRUB`了
 ```Bash
 pacman -S dosfstools grub efibootmgr
-grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=grub
+grub-install --target=x86_64-efi --efi-directory=/EFI --bootloader-id=grub
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
