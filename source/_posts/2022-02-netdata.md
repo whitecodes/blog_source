@@ -37,11 +37,14 @@ DEFAULT_RECIPIENT_TELEGRAM="-100233335555"
 
 挂载后重启容器就可以开启告警了。
 
-<div class="warning">
+完成的测试教程在[这里](https://learn.netdata.cloud/docs/agent/health/notifications#testing-notifications)
 
-> __TODO__ _测试告警_
+在容器中执行下面的命令
 
-</div>
+```bash
+# send test alarms to sysadmin
+/usr/libexec/netdata/plugins.d/alarm-notify.sh test
+```
 
 ## 解决告警
 
@@ -51,7 +54,7 @@ DEFAULT_RECIPIENT_TELEGRAM="-100233335555"
 
 文件的原始内容你可以从[这里](https://github.com/netdata/netdata/blob/master/health/health.d/swap.conf)找到，主要要修改告警的值。文件内容大概是这样：
 
-```
+``` yaml
 
 # you can disable an alarm notification by setting the 'to' line to: silent
 
@@ -100,7 +103,8 @@ component: Memory
 创建文件`python.d/fail2ban.conf`挂载到容器中的`/etc/netdata/python.d/fail2ban.conf`。
 
 文件内容大概是这样：
-```
+
+``` yaml
 local:
   log_path: '/var/log/fail2ban.log'
   conf_path: '/etc/fail2ban/jail.local'
@@ -116,7 +120,7 @@ local:
 
 文件内容大概是这样：
 
-```
+``` conf
 sensors=force
 ```
 
@@ -124,16 +128,64 @@ sensors=force
 
 其实温度看的还是硬盘的问题，所以更好的处理还是要看`S.M.A.R.T.`的数据。
 
-<div class="warning">
+根据教程需要修改`smartd`的配置参数：加上`-A`参数，数据写入文件。
 
-> __TODO__ _硬盘S.M.A.R.T_
+以我的环境为例：需要修改的文件是`/etc/default/smartmontools`
 
-</div>
+``` conf
+# Defaults for smartmontools initscript (/etc/init.d/smartmontools)
+# This is a POSIX shell fragment
+
+start_smartd=yes
+smartd_opts="-A /opt/var/log/smartd/ --quit=never --interval=1800"
+```
+
+需要注意的是，另外使用了`OMV`来管理`NAS`，每次在`OMV`中修改`S.M.A.R.T.`的数据后，都需要手动修改上面的文件。
+
+另外：
+> You may need to create the smartd directory before smartd will write to it
+
+`Netdata`自己有个配置文件用于指定文件。需要创建的文件是`python.d/smartd_log.conf`
+
+内容大概是这样：
+
+``` yaml
+local:
+  log_path : '/opt/var/log/smartd/'
+```
 
 ## 配置串流
 
-<div class="warning">
+`Netdata`提供了中心化的网站，注册就可以看到所有的数据。
 
-> __TODO__ _还没做_
+如果不想用官方的，可以把一台机器的数据串流到另一台机器上。这个就可以实现在同一个地方看所有数据。
 
-</div>
+先说结论：并不适合我：
+
+- 串流需要稳定的网络环境，我这边会漏数据，在2H的尺度上显示的效果才算可以接受。
+
+- 切换节点的是从侧边栏展开的，每次都要点击一下，麻烦。
+
+这里还是记录下配置记录：
+
+发送数据的节点：
+
+`stream.conf`
+
+``` yaml
+[stream]
+    enabled = yes
+    destination = <remote ip>:<netdata port>
+    api key = 31a3451d-ef6b-45fe-b0ec-2223a8c70ab0 # 这个通过 uuidgen 或者 uuid 生成，认证用
+    buffer size bytes = 5242880 # 缓冲buffer调整为5MB，一般不用
+```
+
+接受数据的节点
+
+`stream.conf`
+
+``` yaml
+[31a3451d-ef6b-45fe-b0ec-2223a8c70ab0] # 这个是上面的生成的uuid
+    enabled = yes
+    allow from = *
+```
