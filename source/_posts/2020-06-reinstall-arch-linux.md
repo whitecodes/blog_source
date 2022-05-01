@@ -543,7 +543,21 @@ yay -S steam
 
 ### 输入法
 
-建议使用`fcitx`，还是使用旧的4版本的`fcitx`，`fcitx5`还是有点问题。另外还有安装`fcitx-qt5`来实现`qt`支持，安装`fcitx-cloudpinyin`来实现云拼音支持，安装`kcm-fcitx`来图形化配置工具
+建议使用`fcitx`~~，还是使用旧的4版本的`fcitx`，`fcitx5`还是有点问题。另外还有安装`fcitx-qt5`来实现`qt`支持，安装`fcitx-cloudpinyin`来实现云拼音支持，安装`kcm-fcitx`来图形化配置工具~~
+在用的是`fcitx5`，基本没问题，还有萌百的词库。
+
+```
+fcitx5
+fcitx5-chinese-addons
+fcitx5-configtool
+fcitx5-gtk-git
+fcitx5-material-color1
+fcitx5-pinyin-moegirl
+fcitx5-pinyin-zhwiki
+fcitx5-qt
+```
+
+唯一的问题就是和浏览器`vivaldi`的搭配，这里使用`git`版本，暂时还没有出现问题。
 
 ### 截图工具
 
