@@ -611,8 +611,8 @@ text: Qt.formatTime(timeSource.data["Local"]["DateTime"])
 text: Qt.formatTime(timeSource.data["Local"]["DateTime"],"hh:mm:ss")
 ```
 
-## 输入法皮肤    
-安装`fcitx-skin-material`
+~~## 输入法皮肤    
+安装`fcitx-skin-material`~~
 
 ## 关闭Baloo索引 
 
