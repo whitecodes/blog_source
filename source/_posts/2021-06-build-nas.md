@@ -314,8 +314,13 @@ bt-tracker从[中国可用的 BT Tracker 服务器列表](https://www.yaozuopan.
 
 没钱，所以用的还是`Jellyfin`。`Docker`部署没什么好说的，重点说一下需要装的插件。
 
-- `Douban`用于抓取电影电视剧的豆瓣信息。其中电视剧需要按照季分开。但是这个插件已经很久不更新了，社区有个[替代方案](https://github.com/Libitum/jellyfin-plugin-douban/issues/45)。到不能用的时候再替换吧
-- `AVDC`用来抓取日本电影的信息。[插件本体](https://github.com/xjasonlyu/jellyfin-plugin-avdc)需要搭配[远程工具](https://github.com/xjasonlyu/avdc-api/wiki/Docker%E5%AE%89%E8%A3%85%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89)部署在`VPS`上使用。
+~~- `Douban`用于抓取电影电视剧的豆瓣信息。其中电视剧需要按照季分开。但是这个插件已经很久不更新了，社区有个[替代方案](https://github.com/Libitum/jellyfin-plugin-douban/issues/45)。到不能用的时候再替换吧~~
+
+~~- `AVDC`用来抓取日本电影的信息。[插件本体](https://github.com/xjasonlyu/jellyfin-plugin-avdc)需要搭配[远程工具](https://github.com/xjasonlyu/avdc-api/wiki/Docker%E5%AE%89%E8%A3%85%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89)部署在`VPS`上使用。~~
+
+- `opendouban`用于抓取电影电视剧的豆瓣信息。其中电视剧需要按照季分开。[插件本体](https://github.com/caryyu/jellyfin-plugin-opendouban)需要搭配[远程工具](https://github.com/caryyu/douban-openapi-server)部署在`VPS`上使用。
+- [javtube](https://javtube.github.io/README_ZH.html)用来抓取日本电影的信息。[插件本体](https://github.com/javtube/jellyfin-plugin-javtube)需要搭配[远程工具](https://github.com/javtube/javtube-server-releases)部署在`VPS`上使用，虽然官方推荐是部署在[Heroku](https://github.com/javtube/javtube-server-heroku)上
+
 
 因为性能拉垮，`WEB`播放视频会比较吃力，上PC上有客户端内置了`MPV`，手机上使用`Jellyfin`客户端可以调用`MPV`播放。
 
