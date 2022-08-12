@@ -9,7 +9,7 @@ jobs:
         - name: Setup Node.js
           uses: actions/setup-node@v3
           with:
-            node-version: last
+            node-version: latest
             cache: 'npm'
             cache-dependency-path: ./package-lock.json
         - name: Cache NPM dependencies
