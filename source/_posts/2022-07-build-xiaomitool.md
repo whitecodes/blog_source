@@ -16,7 +16,7 @@ _最后刷入了`GSI`，并且换了手机，现在没有使用这个手机_
 
 <!--more-->
 
-# 编译 xiaomitool-v2
+## 编译 xiaomitool-v2
 
 `AUR`源中有`xiaomitool-v2`，之前可以正常安装使用的。但是现在直接使用，解锁的时候报错`[getServiceToken] Missing serviceToken cookie`。
 
@@ -43,5 +43,3 @@ _最后刷入了`GSI`，并且换了手机，现在没有使用这个手机_
 ## 小米开源
 
 小米终于开源K40s的[内核](https://github.com/MiCode/Xiaomi_Kernel_OpenSource/tree/munch-s-oss)了，估计之后就会有rom可以刷了
-
-
