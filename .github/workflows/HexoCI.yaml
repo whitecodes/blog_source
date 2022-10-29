@@ -31,7 +31,6 @@ jobs:
             git config --global user.name "white"
             npm install hexo-cli -g
             npm install
-            npm run clean
         - name: Hexo deploy
           run: |
             npm run deploy
