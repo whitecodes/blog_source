@@ -21,4 +21,4 @@ tags:
 晚饭出门走了几公里去吃的 KFC，简直是浪费。
 
 # P.S.
-写这个的时候是在周二，周一写了电影`Spectral`的{% post_link spectral 剧透 %}。
+写这个的时候是在周二，周一写了电影`Spectral`的剧透。
