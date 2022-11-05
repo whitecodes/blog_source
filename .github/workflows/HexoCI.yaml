@@ -46,7 +46,6 @@ jobs:
             npm run build
     deploy:
       if: github.ref_name == 'master'
-      needs: build
       runs-on: ubuntu-latest
       steps:
         - name: Checkout source
