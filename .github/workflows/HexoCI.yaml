@@ -1,8 +1,9 @@
 name: Hexo Github Deploy
-on:
-  push:
-    branches:
-      - master
+on: [push]
+# on:
+#   push:
+#     branches:
+#       - master
 jobs:
     build:
       runs-on: ubuntu-latest
@@ -39,6 +40,7 @@ jobs:
             npm install hexo-cli -g
             npm install
     deploy:
+      if: github.ref_type == 'master'
       needs: build
       runs-on: ubuntu-latest
       steps:
