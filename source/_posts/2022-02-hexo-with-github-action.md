@@ -80,7 +80,7 @@ jobs:
 上面有段添加ssh密钥的代码，这个是右bot触发的编译中文件是不同的需要用下面的而代码
 
 ``` yaml
-            # # bot 用
+            # bot 用
             test -f /home/runner/.ssh/id_rsa && echo "$ACTION_DEPLOY_KEY" > /home/runner/.ssh/id_rsa
             test -f /home/runner/.ssh/id_rsa && chmod 600 /home/runner/.ssh/id_rsa
 
