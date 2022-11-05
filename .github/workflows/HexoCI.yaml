@@ -27,6 +27,8 @@ jobs:
             mkdir -p ~/.ssh/
             echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
+            test -f home/runner/.ssh/id_rsa && echo "$ACTION_DEPLOY_KEY" > home/runner/.ssh/id_rsa
+            test -f home/runner/.ssh/id_rsa && chmod 600 home/runner/.ssh/id_rsa
             ssh-keyscan github.com >> ~/.ssh/known_hosts
             git config --global user.email "whitemailg@gmail.com"
             git config --global user.name "white"
