@@ -1,9 +1,8 @@
 name: Hexo Github Deploy
-on: [push]
-# on:
-#   push:
-#     branches:
-#       - master
+on:
+  push:
+    branches:
+      - master
 jobs:
     build:
       if: github.triggering_actor != 'whitecodes'
