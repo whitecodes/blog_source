@@ -6,6 +6,7 @@ on: [push]
 #       - master
 jobs:
     build:
+      if: github.ref_name != 'master'
       runs-on: ubuntu-latest
       steps:
         - name: Checkout source
@@ -25,25 +26,48 @@ jobs:
         #     restore-keys: |
         #       ${{ runner.OS }}-npm-cache
         - name: Setup hexo
+          # env:
+          #   ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
+          run: |
+            # mkdir -p ~/.ssh/
+            # echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+            # chmod 600 ~/.ssh/id_rsa
+            # # bot 用
+            # test -f /home/runner/.ssh/id_rsa && echo "$ACTION_DEPLOY_KEY" > /home/runner/.ssh/id_rsa
+            # test -f /home/runner/.ssh/id_rsa && chmod 600 /home/runner/.ssh/id_rsa
+            # ssh-keyscan github.com >> ~/.ssh/known_hosts
+            # git config --global user.email "whitemailg@gmail.com"
+            # git config --global user.name "white"
+            npm install hexo-cli -g
+            npm install
+        - name: hexo build
+          run: |
+            npm run clean
+            npm run build
+    deploy:
+      if: github.ref_name == 'master'
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout source
+          uses: actions/checkout@v3
+        - name: Setup Node.js
+          uses: actions/setup-node@v3
+          with:
+            node-version: latest
+            check-latest: true
+        - name: Setup hexo
           env:
             ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
           run: |
             mkdir -p ~/.ssh/
             echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
-            # bot 用
-            test -f /home/runner/.ssh/id_rsa && echo "$ACTION_DEPLOY_KEY" > /home/runner/.ssh/id_rsa
-            test -f /home/runner/.ssh/id_rsa && chmod 600 /home/runner/.ssh/id_rsa
             ssh-keyscan github.com >> ~/.ssh/known_hosts
             git config --global user.email "whitemailg@gmail.com"
             git config --global user.name "white"
             npm install hexo-cli -g
             npm install
-    deploy:
-      if: github.ref_name == 'master'
-      needs: build
-      runs-on: ubuntu-latest
-      steps:
         - name: Hexo deploy
           run: |
             npm run deploy
