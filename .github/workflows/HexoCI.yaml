@@ -1,4 +1,4 @@
-name: Hexo Github Actions
+name: Hexo Github Deploy
 on:
   push:
     branches:
@@ -38,6 +38,10 @@ jobs:
             git config --global user.name "white"
             npm install hexo-cli -g
             npm install
+    deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
         - name: Hexo deploy
           run: |
             npm run deploy
