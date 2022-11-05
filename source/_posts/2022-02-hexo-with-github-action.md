@@ -64,15 +64,24 @@ jobs:
 
 预计应该是部署失败的，因为部署的时候没有认证，这就需要添加证书
 
-## 配置证书 
+## 配置证书
 
 在本地电脑上生成证书，不要密码。
 把`privatekey`内容复制到内容分支的`Actions secrets`中;
 
 把`publickey`内容复制到发布分支的`Deploy keys`中。
 
-
-
 ## 在线编辑
 
 `Github`有提供一个在线编辑的页面，在`Repo`页面按下按键`.`就可以打开编辑页面了，看起来是`Visual Studio Code Online`。
+
+## bot 触发的处理
+
+上面有段添加ssh密钥的代码，这个是右bot触发的编译中文件是不同的需要用下面的而代码
+
+``` yaml
+            # # bot 用
+            test -f /home/runner/.ssh/id_rsa && echo "$ACTION_DEPLOY_KEY" > /home/runner/.ssh/id_rsa
+            test -f /home/runner/.ssh/id_rsa && chmod 600 /home/runner/.ssh/id_rsa
+
+```
