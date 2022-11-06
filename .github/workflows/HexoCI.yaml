@@ -4,46 +4,46 @@ on:
     branches:
       - master
 jobs:
-    lint:
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout source
-          uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
-        - name: Lint Code Base
-          uses: github/super-linter@v4
-          env:
-            VALIDATE_ALL_CODEBASE: false
-            DEFAULT_BRANCH: master
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    deploy:
-      runs-on: ubuntu-latest
-      needs: lint
-      steps:
-        - name: Checkout source
-          uses: actions/checkout@v2
-        - name: Setup Node.js
-          uses: actions/setup-node@v3
-          with:
-            node-version: latest
-            check-latest: true
-        - name: Setup hexo
-          env:
-            ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
-          run: |
-            mkdir -p ~/.ssh/
-            echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
-            chmod 600 ~/.ssh/id_rsa
-            ssh-keyscan github.com >> ~/.ssh/known_hosts
-            # bot 用
-            test -f /home/runner/.ssh/id_rsa && echo "$ACTION_DEPLOY_KEY" > /home/runner/.ssh/id_rsa
-            test -f /home/runner/.ssh/id_rsa && chmod 600 /home/runner/.ssh/id_rsa
-            git config --global user.email "whitemailg@gmail.com"
-            git config --global user.name "white"
-            npm install hexo-cli -g
-            npm install
-        - name: Hexo deploy
-          run: |
-            npm run clean
-            npm run deploy
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          check-latest: true
+      - name: Setup hexo
+        env:
+          ACTION_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_PRI }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          # bot 用
+          test -f /home/runner/.ssh/id_rsa && echo "$ACTION_DEPLOY_KEY" > /home/runner/.ssh/id_rsa
+          test -f /home/runner/.ssh/id_rsa && chmod 600 /home/runner/.ssh/id_rsa
+          git config --global user.email "whitemailg@gmail.com"
+          git config --global user.name "white"
+          npm install hexo-cli -g
+          npm install
+      - name: Hexo deploy
+        run: |
+          npm run clean
+          npm run deploy
