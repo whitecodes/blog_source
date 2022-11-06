@@ -8,9 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+        uses: actions/checkout
       - name: Lint Code Base
         uses: github/super-linter@v4
         env:
@@ -22,7 +20,7 @@ jobs:
     needs: lint
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
