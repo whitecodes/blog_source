@@ -146,9 +146,9 @@ menu:
     - type: archives
       path: /archives/
       icon: icon-archive-line
-    # - type: categories
-    #   path: /categories/
-    #   icon: icon-folder-2-line
+    - type: 
+      path: https://github.com/whitecodes/blog_source
+      icon: icon-folder-2-line
     - type: tags
       path: /tags/
       icon: icon-price-tag-3-line
