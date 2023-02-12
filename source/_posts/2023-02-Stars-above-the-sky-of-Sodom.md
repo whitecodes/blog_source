@@ -5,7 +5,7 @@ tag:
 - Novel
 - Piracy 
 ---
-微博上看到的一篇`流浪地球`的同人：
+微博上看到的一篇`流浪地球`的[同人](https://weibo.com/ttarticle/p/show?id=2309404865409169096992)：
 > 关于为什么杜勒斯这个唯一的地上基站填进去四队人死了一半在阿美丽卡独特国情下很难不让人怀疑是不是打成了黑鹰坠落这件事*
 
 <!--more-->
@@ -49,8 +49,8 @@ __“说话啊，阿兵哥，该不会你也是个进不去的可怜虫吧？”
 >
 >——孙武《孙子兵法》
 
-![internet recovery in 755 minutes](/source/asset/2023/02_time_0635.jpg)
-![dulles](/source/asset/2023/02_location_dulles.jpg)
+![internet recovery in 755 minutes](/asset/2023/02_time_0635.jpg)
+![dulles](/asset/2023/02_location_dulles.jpg)
 
 <font color='grey'>___​“Пыль глотаю теряю сознанье”___</font>
 <font color='grey'>___“吞下沙尘 我失去了知觉，”___</font>
@@ -158,7 +158,7 @@ ___“起来吧，我们继续走，你今天还要拯救世界呢。”___
 
 瓦考夫斯基上尉看着墙上连壁画和浮雕都难以幸免的涂鸦，墙角散落的针管和一滩滩说不清来源的斑点，再看看李上尉背后被二楼高台上的尸体溅上鲜血的耶稣受难像，只是苦笑着摇了摇头。
 
-![soldiers on the move](/source/asset/2023/02_action_01.jpg)
+![soldiers on the move](/asset/2023/02_action_01.jpg)
 
 ## ​II.
 
@@ -166,7 +166,7 @@ ___“起来吧，我们继续走，你今天还要拯救世界呢。”___
 >
 >——莎士比亚《亨利五世》
 
-![internet recovery in 310 minutes](/source/asset/2023/02_time_0510.jpg)
+![internet recovery in 310 minutes](/asset/2023/02_time_0510.jpg)
 
 巴尔的摩/华盛顿瑟古德·马歇尔国际机场早已不再如往日一般接受如织的游人。无论是中央航站楼上指向天空的近防炮与导弹防御系统，还是远处跑道上注视着一架架C-17“全球霸王”运输机起降的一架AC-130空中炮艇，抑或在新建的掠夺者无人机库旁降落的两架AH-64EX“守护神阿帕奇”武装直升机，都在齐心协力地磨灭这里作为民用机场的旧日遗迹。
 
@@ -294,7 +294,7 @@ ___“那还不赶紧去把你的外骨骼套上，彭晨涛军士长！等等�
 无数各种改型的CH-47与UH-60运输直升机的螺旋桨在辽阔的停机坪上掀起海啸般的风浪，第160航空团的持剑人马徽章骄傲地闪耀在铁灰色苍穹下的机身上。包裹在轻重外骨骼下身着不同迷彩防寒作战服的军人们先后冲上直升机，不时有D-307A机械犬与多功能门框机器人冲上直升机与他们为伴。当彭晨涛三级军士长带着自己的三名部下与克里斯蒂安·赫克托少校搭乘的CH-47运输直升机的起落架刚刚离地，一个外骨骼下套着特训期人员迷彩服，连头盔也没戴好的金发姑娘气喘吁吁地跳了上来，她脖子上的红色围巾异常显眼。
 
 <font color='blue'>___“俄罗斯联邦武装力量驻UEG军事参谋团紧急任务分队特训期成员，</font><font color='grey'>娜塔莉亚·米拉伊洛夫娜·果斯莫杰米扬斯卡娅少尉前来报到！</font><font color='red'>上一次你们美国人没赶上在柏林插旗，这一次你们也别想比俄国人先到杜勒斯！”___</font>
-![soldier](/source/asset/2023/02_soldier_01.jpg)
+![soldier](/asset/2023/02_soldier_01.jpg)
 
 ## ​III.
 
@@ -302,8 +302,8 @@ ___“那还不赶紧去把你的外骨骼套上，彭晨涛军士长！等等�
 >
 >——温斯顿·丘吉尔于1940年6月18日演讲
 
-![internet recovery in 160 minutes](/source/asset/2023/02_time_0240.jpg)
-![the internet corporation for assigned names and numbers dulles center](/source/asset/2023/02_location_dulles_center.jpg)
+![internet recovery in 160 minutes](/asset/2023/02_time_0240.jpg)
+![the internet corporation for assigned names and numbers dulles center](/asset/2023/02_location_dulles_center.jpg)
 
 ___“班长，你在美国佬面前吹什么牛逼啊？还他妈‘对付这种情况是我们的老本行’，去年咱们在台北发动机旁边处理的那堆杂种要是手里有对面一半的家伙，哥几个怕不是早就去见马克思喽。”___
 <font color='grey'>___“老甘你少tm废屁话，懂不懂啷个叫“入乡随俗”？赶紧去给劳资汇报敌情。“___</font>
@@ -426,7 +426,7 @@ ___“依次起飞，Superbia起飞顺序为1……Claudia起飞顺序为8。”
 <font color='blue'>___“Overlord，这里是Superbia，我已成功起飞，两小时内抵达任务区上空，完毕。”___</font>
 ___“Overlord收到，祝好运。”___
 
-![pilot](/source/asset/2023/02_pilot.jpg)
+![pilot](/asset/2023/02_pilot.jpg)
 
 ## ​IV.
 
@@ -434,7 +434,7 @@ ___“Overlord收到，祝好运。”___
 >
 >——全人类
 
-![internet recovery in 80 minutes](/source/asset/2023/02_time_0080.jpg)
+![internet recovery in 80 minutes](/asset/2023/02_time_0080.jpg)
 
 ___“Gold Eagle，这里是Overlord，Stalker与Striker单位在上线前被陨石击毁，暂时无法提供空中打击与火力支援任务，目前后备三队处于待命状态。请立即汇报你部情况。”___
 <font color='blue'>___“Overlord，目前我部外围防线均被突破，制高点都联系不上了，我已和残部占据目标点正门及楼顶位置死守。RPG，趴下！Overlord，是否仍能听到？”___</font>
@@ -618,7 +618,7 @@ ___“再见，太阳系。”___
 
 ___搜寻SnowWolf-3一行人遗骸与遗物无果的宋新阳，关掉平板上迟迟不敢下笔签字的人员失踪报告，转头望着行星发动机的巨大射流，和杜勒斯地表上安然无恙的人们一同低语。___
 
-![earth](/source/asset/2023/02_earth.jpg)
+![earth](/asset/2023/02_earth.jpg)
 
 --------
 
@@ -819,6 +819,6 @@ UEG-PKF乌克兰籍队员 陆军少尉
 
 ## 附录
 
-![脑洞1](/source/asset/2023/02_brain_hole_01.jpg)
-![脑洞2](/source/asset/2023/02_brain_hole_02.jpg)
-![作者](/source/asset/2023/02_author.jpg)
+![脑洞1](/asset/2023/02_brain_hole_01.jpg)
+![脑洞2](/asset/2023/02_brain_hole_02.jpg)
+![作者](/asset/2023/02_author.jpg)
