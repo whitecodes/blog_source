@@ -25,7 +25,7 @@ favicon: /yun.svg
 
 # Posts / Categories / Tags in sidebar.
 sidebar:
-  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
+  # bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
   # dark_bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
   bg_position: bottom 1rem center
   tagcloud:
@@ -330,7 +330,7 @@ trianglify:
   height: 600
   # https://github.com/qrohlf/trianglify/blob/master/src/utils/colorbrewer.js
   palette: '["YlGnBu", "GnBu", "Purples", "Blues"]'
-  opacity: 0.5
+  opacity: 0.7
 
 cursor:
   enable: false
@@ -340,6 +340,8 @@ cursor:
 
 smoothScroll: true
 
+medium_zoom: false
+
 # You can see effect in https://scrollrevealjs.org/
 scrollreveal:
   enable: true
@@ -348,7 +350,7 @@ scrollreveal:
     - .markdown-body img
 
 bg_image:
-  enable: true
+  enable: false
   url: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0-blur-30px.jpg # recomend image related to your mode
   dark: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/galaxy.jpg
   # blur: 30px
@@ -450,7 +452,7 @@ footer:
 post_meta:
   item_text: false
   created_at: true
-  updated_at: true
+  updated_at: false
   categories: false
   tags: true
 
@@ -514,7 +516,16 @@ engine_search:
 
 # https://github.com/wzpan/hexo-generator-search
 local_search:
-  enable: false
+  enable: true
+  # If auto, trigger search by changing input.
+  # If manual, trigger search by pressing enter key or search button.
+  trigger: auto
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Preload the search data when the page loads.
+  preload: false
 
 # https://github.com/oncletom/hexo-algolia
 algolia_search:
