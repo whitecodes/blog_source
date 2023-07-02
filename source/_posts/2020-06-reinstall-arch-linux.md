@@ -73,14 +73,14 @@ swapon /dev/nvme0n1p2
 ```
 格式化根分区，用的`btrfs`
 ```Bash
-kfs.btrfs -L xps /dev/nvme0n1p3
+mkfs.btrfs -L xps /dev/nvme0n1p3
 ```
 
 格式化完成后使用`lsblk`查看有没有错
 
 先挂载分区到对应路径
 ```Bash
-mount -o compress=lzo /dev/nvme0n1p3 /mnt
+mount -o compress=zstd /dev/nvme0n1p3 /mnt
 mkdir -p /mnt/boot
 mount /dev/nvme0n1p1 /mnt/EFI
 ```
@@ -143,7 +143,7 @@ echo xps > /etc/hostname
 nano /etc/hosts
 ```
 输入以下内容，保存退出
-```Hosts
+``` Hosts
 127.0.0.1 localhost
 ::1 localhost
 127.0.1.1 xps.localdomain xps
@@ -277,7 +277,7 @@ pacman -S dolphin firefox code
 ```Bash
 pacman -S clash
 ```
-下载代理的配置文件，这里放在`Clash.yaml`中。
+下载代理的配置文件，这里放在`Clash.yaml`中。记得修改其中的`secret`，加上dashbroad的访问密码。
 运行代理
 ```Bash
 clash -f /path/to/Clash.yaml
@@ -412,15 +412,15 @@ include "/usr/share/nano/*.nanorc"
 yay -S nano-syntax-highlighting
 ```
 
-## chromium-vaapi
-日常的电脑使用都是在浏览器中完成。其中大部分是看视频。其实使用软解也行，但是还是开启硬解。
+## 显卡驱动
 
-`chromium-vaapi`是启用了硬件加速的`chrome`版本。安装浏览器本体很简单，在`archlinuxcn`镜像中有预编译版本。
-```Bash
-yay -S chromium-vaapi
-```
+*注意事项：*`Nvidia`的驱动一直在更新，这里的说明可能已经过期
 
-麻烦的是安装`Nvidia`驱动并使用独立显卡。这里直接参考[网上的教程](https://blog.csdn.net/u014025444/article/details/91454059)
+麻烦的是安装`Nvidia`驱动并使用独立显卡。~~这里直接参考[网上的教程](https://blog.csdn.net/u014025444/article/details/91454059)~~
+
+参考[这个](https://wiki.archlinuxcn.org/wiki/NVIDIA)
+
+只需要安装`Nvidia`驱动，屏蔽`initramfs`中的`kms`
 
 1. 安装闭源驱动
 ```Bash
@@ -430,6 +430,17 @@ pacman -S nvidia nvidia-utils nvidia-settings
 ```Bash
 lspci | egrep 'VGA|3D'
 ```
+
+3. 修改grub
+`nano /etc/default/grub`
+```
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet initcall_blacklist=simpledrm_platform_driver_init"
+```
+
+把`kms`从`/etc/mkinitcpio.conf`里的`HOOKS`数组中移除，并重新生成`initramfs`
+
+
+*以下的步骤是失效的*
 
 3. 自动生成配置文件
 ```Bash
@@ -504,6 +515,8 @@ NeedsTargets
 Exec=/bin/sh -c 'while read -r trg; do case $trg in linux) exit 0; esac; done; /usr/bin/mkinitcpio -P'
 ```
 
+### 浏览器设置
+
 内存够大，把浏览器的临时文件放到内存中。在`chromium`的启动命令后加上`%U --disk-cache-dir=/tmp/cache`
 
 `chrome`使用的图形化是基于`gtk`的，文件选择的弹框安装`kdialog`
@@ -518,11 +531,17 @@ yay -S steam
 ```
 如果有问题，那么需要安装其他包，具体看[Wiki](https://wiki.archlinux.org/index.php/Steam/Troubleshooting)
 
+## 手柄连接
+
 ## 常用软件
+
+### 图片查看
+
+`qView`
 
 ### 编辑器
 
-`vscode`，使用官方的`code`包，或者去除微软信息的`vscodium`包
+`vscode`，使用官方的`visual-studio-code-bin`包，或者去除微软信息的`vscodium`包
 
 ### IM
 
@@ -534,8 +553,13 @@ yay -S steam
 
 ### 视频播放器
 
-`bomi`    
-目前还没有找到合适的`MPV`前端
+~~`bomi`    
+目前还没有找到合适的`MPV`前端~~
+
+`bomi`已经处于不再维护的状态，还是换了`MPV`。
+`OSC`用的是[uosc](https://github.com/tomasklaen/uosc/)
+
+`MPV`的配置项和插件很多，估计要另外一篇。
 
 ### 文件管理器
 
@@ -588,9 +612,13 @@ unrar (optional) - RAR decompression support
 参考[Wiki](https://wiki.archlinux.org/index.php/Localization_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)/Simplified_Chinese_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#%E4%BF%AE%E6%AD%A3%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E4%B8%BA%E5%BC%82%E4%BD%93%EF%BC%88%E6%97%A5%E6%96%87%EF%BC%89%E5%AD%97%E5%BD%A2)
 
 ## 主题
-安装主题`breeze10-kde`
 
-在`应用程序风格`-`窗口装饰`中选择`Breeze10` 。`Opacity`设置为 0% ，按钮大小设置为`很大`
+窗口推荐使用`Klassy`有很多选项
+
+
+~~安装主题`breeze10-kde`~~
+
+~~在`应用程序风格`-`窗口装饰`中选择`Breeze10` 。`Opacity`设置为 0% ，按钮大小设置为`很大`~~
 
 `工作空间行为`-`桌面特效` `模糊` 设置合适的值
 
@@ -624,3 +652,5 @@ balooctl disable
 
 `latte-dock`    
 分隔使用`plasma5-applets-latte-spacer`
+
+## yuzu
