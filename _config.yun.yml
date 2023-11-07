@@ -305,7 +305,7 @@ font:
       - https://raw.githubusercontent.com/mcdtaiwan/McDonalds_Fries_Font/main/McDonald_s_Fries_Font.ttf
       - https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&display=swap
   serif:
-    family: "'McDonald\'s Fries Font', 'LXGW WenKai', 'Noto Serif SC'"
+    family: "\"McDonald's Fries Font\", 'LXGW WenKai', 'Noto Serif SC'"
     weight: 900
   sans_serif:
     family: "'PingFang SC', 'Microsoft YaHei', Roboto, Arial, sans-serif"
