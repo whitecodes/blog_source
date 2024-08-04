@@ -146,7 +146,7 @@ nano /etc/hosts
 ``` Hosts
 127.0.0.1 localhost
 ::1 localhost
-127.0.1.1 xps.localdomain xps
+127.0.0.1 xps.localdomain xps
 ```
 
 设置`root`密码
